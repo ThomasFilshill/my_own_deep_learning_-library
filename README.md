@@ -1,6 +1,6 @@
 # Deep Learning Library
 
-Welcome to the neuronix Deep Learning Library! This library includes:
+Welcome to the neuronix Deep Learning Library! I made this by creating the components from scratch. This library includes:
 
 - Tensors
 - Layers
