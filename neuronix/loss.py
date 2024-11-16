@@ -29,3 +29,11 @@ class BinaryCrossEntropy(Loss):
         predicted = np.clip(predicted, epsilon, 1 - epsilon)
         return (predicted - actual) / (predicted * (1 - predicted) * actual.shape[0])
 
+class CategoricalCrossEntropy(Loss):
+    def loss(self, predicted: Tensor, actual: Tensor) -> float:
+        epsilon = 1e-15
+        predicted = np.clip(predicted, epsilon, 1 - epsilon)
+        return -np.sum(actual * np.log(predicted)) / predicted.shape[0]
+
+    def gradient(self, predicted: Tensor, actual: Tensor) -> Tensor:
+        return (predicted - actual) / predicted.shape[0]
